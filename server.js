@@ -30,10 +30,19 @@ socketio.on("connection",function (socket) {
 	console.log("Client connected !");
 	
 
-    //Emit databases names
+    /**
+    * TASK : Emit databases names
+    * INPUT : Nothing
+    * @return the names of the databases
+    **/
     socket.on("get:database",function(data){
-    	console.log("listing databases");
-		socket.emit("get:database",["db1","db2"]);
+    	console.log("received get:database request from Client");
+	    
+	// Ask for the database names to the Android Service.
+	
+	socket.emit("get:database",["db1","db2"]);
+	    
+	    
 	});
 
     //Emit table names from database given
